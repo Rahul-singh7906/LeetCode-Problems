@@ -15,16 +15,16 @@ class Solution {
         return ls;
     }
     public boolean isCorrect(String s,String p){
-        char[] ch1=new char[26];
-        for(char c:s.toCharArray()){
-            ch1[c-'a']++;
-        }
         char[] ch2=new char[26];
+        
         for(char c:p.toCharArray()){
             ch2[c-'a']++;
         }
-        for(int i=0;i<26;i++){
-            if(ch1[i]!=ch2[i]) return false;
+        for(char c:s.toCharArray()){
+            ch2[c-'a']--;
+        }
+        for(char c:p.toCharArray()){
+            if(ch2[c-'a']!=0) return false;
         }
         return true;
     }
