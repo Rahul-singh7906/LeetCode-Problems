@@ -1,12 +1,16 @@
 class Solution {
     List<String> ls = new ArrayList<>();
+    HashSet<String> hs = new HashSet<>();
     public List<String> letterCasePermutation(String s) {
         helper(s,0);
         return ls;
     }
     public void helper(String s,int ind){
         if(ind==s.length()){
-            if(!ls.contains(s)) ls.add(s);
+            if(!hs.contains(s)) {
+                ls.add(s);
+                hs.add(s);
+            }
             return ;
         }
         if(ind>s.length()) return;
