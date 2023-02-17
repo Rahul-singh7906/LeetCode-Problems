@@ -24,19 +24,10 @@ class Solution {
         }
     }
     public String changer(String str,int ind){
-        char[] ch = str.toCharArray();
-        if(ch[ind]>='a' && ch[ind]<='z'){
-            // System.out.println("loop1");
-            ch[ind]=Character.toUpperCase(ch[ind]);
-        }
-        else {
-            ch[ind]=Character.toLowerCase(ch[ind]);
-            // System.out.println("loop2");
-        }
-        String ans="";
-        for(int i=0;i<ch.length;i++){
-            ans+=ch[i];
-        }
-        return ans;
+        StringBuilder sb= new StringBuilder(str);
+        char ch=str.charAt(ind);
+        if(ch>='a' && ch<='z') sb.setCharAt(ind,Character.toUpperCase(ch));
+        else sb.setCharAt(ind,Character.toLowerCase(ch));
+        return sb.toString();
     }
 }
