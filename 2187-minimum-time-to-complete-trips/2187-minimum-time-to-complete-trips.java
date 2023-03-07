@@ -5,10 +5,10 @@ class Solution {
         int mini=Integer.MAX_VALUE;
         int n=time.length;
         for(int i=0;i<n;i++){
-            mini=Math.max(mini,time[i]);
+            mini=Math.min(mini,time[i]);
         }
         // long ans=0;
-        long e= 100000000000000L;
+        long e= (long)mini*totalTrips;
         while(s<e){
             long m=s+(e-s)/2;
             if(isValid(m,time,totalTrips)){
