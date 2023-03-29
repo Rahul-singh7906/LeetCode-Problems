@@ -16,19 +16,14 @@
 class Solution {
     int maxi=Integer.MIN_VALUE;
     public int diameterOfBinaryTree(TreeNode root) {
-        traversal(root);
+        helper(root);
         return maxi;
-    }
-    public void traversal(TreeNode root){
-        if(root==null) return;
-        traversal(root.left);
-        int h1=helper(root.left);
-        int h2=helper(root.right);
-        maxi=Math.max(maxi,(h1+h2));
-        traversal(root.right);
     }
     public int helper(TreeNode root){
         if(root==null) return 0;
-        return 1+Math.max(helper(root.left),helper(root.right));
+        int lh=helper(root.left);
+        int rh=helper(root.right);
+        maxi=Math.max(maxi,lh+rh);
+        return 1+Math.max(lh,rh);
     }
 }
