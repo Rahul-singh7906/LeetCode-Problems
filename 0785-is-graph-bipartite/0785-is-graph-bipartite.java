@@ -10,18 +10,26 @@ class Solution {
         return true;
     }
     public boolean helper(int i,int[][] graph,int[] vis){
-        Queue<Integer> q= new LinkedList<>();
-        q.add(i);
-        while(!q.isEmpty()){
-            int val=q.poll();
-            int clr=vis[val];
-            for(int it:graph[val]){
-                if(vis[it]==0){
-                    q.add(it);
-                    vis[it]=-clr;
-                }
-                else if(vis[val]!=-vis[it]) return false;
+        // Queue<Integer> q= new LinkedList<>();
+        // q.add(i);
+        // while(!q.isEmpty()){
+        //     int val=q.poll();
+        //     int clr=vis[val];
+        //     for(int it:graph[val]){
+        //         if(vis[it]==0){
+        //             q.add(it);
+        //             vis[it]=-clr;
+        //         }
+        //         else if(vis[val]!=-vis[it]) return false;
+        //     }
+        // }
+        // return true;
+        for(int it:graph[i]){
+            if(vis[it]==0){
+                vis[it]=-vis[i];
+                if(helper(it,graph,vis)==false) return false;;
             }
+            else if(vis[i]!=-vis[it]) return false;
         }
         return true;
     }
