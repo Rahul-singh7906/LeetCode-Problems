@@ -1,11 +1,3 @@
-class Pair{
-    int node;
-    int color;
-    Pair(int node,int color){
-        this.node=node;
-        this.color=color;
-    }
-}
 class Solution {
     public boolean isBipartite(int[][] graph) {
         int[] vis = new int[graph.length];
