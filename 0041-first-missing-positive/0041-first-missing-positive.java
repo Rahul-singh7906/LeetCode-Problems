@@ -6,10 +6,10 @@ class Solution {
             hs.add(nums[i]);
             maxi=Math.max(maxi,nums[i]);
         }
-        maxi=Math.max(maxi,nums.length+1);
+        maxi=Math.max(maxi,nums.length);
         for(int i=1;i<=maxi;i++){
             if(!hs.contains(i)) return i;
         }
-        return -1;
+        return maxi+1;
     }
 }
